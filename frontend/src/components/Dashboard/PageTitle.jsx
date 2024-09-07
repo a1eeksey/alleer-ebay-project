@@ -1,18 +1,21 @@
 import React from "react";
+import { Link } from 'react-router-dom';
+
+// Icons
 import home from "../../assets/icons/home.svg"
 
-function PageTitle({page}) {
+function PageTitle({pageTitle}) {
   return (
     <div className="pagetitle">
-      <h1>{page}</h1>
+      <h1>{pageTitle}</h1>
       <nav>
         <ol className="breadcrumb">
           <li className="breadcrumb-item">
-            <a href="#">
+            <Link to="/dashboard">
               <img src={home} alt="..." />
-            </a>
+            </Link>
           </li>
-          <li className="breadcrumb-item active">{page}</li>
+          <li className="breadcrumb-item active">{pageTitle}</li>
         </ol>
       </nav>
     </div>

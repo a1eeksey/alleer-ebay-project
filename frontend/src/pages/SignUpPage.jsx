@@ -25,12 +25,12 @@ function SignUp() {
   }
 
   return (
-    <form onSubmit={handleSubmit} id="main-wrapper" className="auth-customizer-none">
+    <form onSubmit={handleSubmit} id="main-wrapper" className="login auth-customizer-none">
     <div className="position-relative overflow-hidden radial-gradient min-vh-100 w-100">
       <div className="position-relative z-index-5">
         <div className="row justify-content-center">
 
-          <div className="mt-5 col-xl-6 col-xxl-6">
+          <div className="mt-md-5 mt-0 col-xl-6 col-xxl-6">
           <div className="h4 text-xl-start text-center"><Link className="navbar-brand logo" to="/">ALLEER</Link></div>
             <div className="mt-5 d-none d-xl-flex flex-column h-n80">
               <h2>Build your own dashboard</h2>

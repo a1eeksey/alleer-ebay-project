@@ -6,7 +6,7 @@ import arrowRight from "../../assets/icons/arrowRight.svg"
 
 function Navbar_Landing() {
     return (
-<nav className="navbar navbar-expand-lg">
+<nav className="navbar navbar-expand-lg d-sm-fixed-top">
 
       <nav className="navbar w-100 d-flex justify-content-between">
   <div className="container-fluid navbar_container">

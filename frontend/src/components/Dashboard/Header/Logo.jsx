@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 
 // icons
-import toggle from "../../assets/icons/toggle.svg"
+import toggle from "../../../assets/icons/toggle.svg"
 
 function Logo() {
     const handleToggleSideBar = () => {

@@ -1,5 +1,5 @@
 import React from "react";
-import blueEllipse from "../../assets/icons/blueEllipse.svg"
+import blueEllipse from "../../../assets/icons/blueEllipse.svg"
 function Info_Card() {
     return (
     <div className="dashboard-card col-lg-6">

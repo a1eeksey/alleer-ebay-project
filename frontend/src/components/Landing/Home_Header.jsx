@@ -15,7 +15,7 @@ function Home_Header({title, text, paragraph, image}) {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img className="img-fluid rounded-3 my-5" src={image} alt="..."/></div>
+                        <div className="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img className="img-fluid rounded-3 my-5" loading="lazy" src={image} alt="..."/></div>
                     </div>
                 </div>
             

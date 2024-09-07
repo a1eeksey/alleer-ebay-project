@@ -1,7 +1,8 @@
 import React from "react";
-import emptyInbox from "../../assets/icons/emptyInbox.svg"
+import emptyInbox from "../../../assets/icons/emptyInbox.svg"
 
 function Orders_Card() {
+    
     return (
     <div className="dashboard-card col-lg-6">
         <div className="gap-2">

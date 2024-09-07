@@ -1,13 +1,13 @@
 import React from "react";
 import { useState } from "react";
-import { useLogout } from '../../hooks/useLogout'
-import { useAuthContext } from '../../hooks/useAuthContext'
+import { useLogout } from '../../../hooks/useLogout'
+import { useAuthContext } from '../../../hooks/useAuthContext'
 
 import UserDropdown from "./UserDropdown";
 
 //icon
-import arrowDown from "../../assets/icons/arrowDown.svg"
-import userSquare from "../../assets/icons/userSquare.svg"
+import arrowDown from "../../../assets/icons/arrowDown.svg"
+import userSquare from "../../../assets/icons/userSquare.svg"
 
 function UserProfile() {
     const { logout } = useLogout()

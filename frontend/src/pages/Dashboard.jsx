@@ -1,16 +1,14 @@
-import React from "react";
-import { useAuthContext } from "../hooks/useAuthContext"
+import React, {useEffect} from "react";
+// import { useAuthContext } from "../hooks/useAuthContext"
 
-import SideBar from "../components/Dashboard/SideBar";
-import Header from "../components/Dashboard/Header";
+import SideBar from "../components/Dashboard/SideBar/SideBar";
+import Header from "../components/Dashboard/Header/Header";
 import Main from "../components/Dashboard/Main";
 
-
 function Dashboard() {
-  const {user} = useAuthContext()
-  
+  // const {user} = useAuthContext()
   return (
-    <div className="dashboard-container">
+    <div className="page dashboard-container">
       <Header />
       <SideBar />
       <Main /> 

@@ -8,7 +8,7 @@ import FAQImg from "../assets/images/FAQ.svg"
 
 function FAQ() {
   return (
-    <div>
+    <div className="page">
       <div className="container">
         <Navbar_Landing />
         <div className="main">

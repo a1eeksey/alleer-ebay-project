@@ -1,5 +1,5 @@
 import React from "react";
-import UserDropdown from "./UserDropdown";
+import UserDropdown from "../Header/UserDropdown";
 
 function Deals_Card() {
     return (

@@ -12,7 +12,7 @@ function GoogleSignin() {
                   <GoogleLogin
                     onSuccess={credentialResponse => {
                       let credentialResponseDecoded = jwtDecode(credentialResponse.credential)
-                      console.log(credentialResponseDecoded);
+                      // console.log(credentialResponseDecoded);
                     // update the auth context
                     dispatch({type: 'LOGIN', payload: credentialResponseDecoded})
                     }}

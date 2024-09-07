@@ -6,12 +6,13 @@ import Home_Third from "../components/Landing/Home_Third"
 import Home_Fourth from "../components/Landing/Home_Fourth";
 import Footer from "../components/shareable/Footer_Landing";
 
+import FAQ_Main from "../components/Landing/FAQ_Main";
 // Images
 import headerImg from "../assets/images/header.svg"
 
 function HomePage() {
     return (
-        <div>
+        <div className="page">
             <div className="container">
             <Navbar_Landing/>
             <div className="main">

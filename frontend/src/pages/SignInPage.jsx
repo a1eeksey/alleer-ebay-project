@@ -22,7 +22,7 @@ function SignIn() {
       <form id="main-wrapper" className="login auth-customizer-none">
       <div className="h4 text-center mt-2 mb-0"><Link className="navbar-brand logo" to="/">ALLEER</Link></div>
     <div className="position-relative overflow-hidden radial-gradient min-vh-100 w-100 d-flex align-items-center justify-content-center">
-      <div className="d-flex align-items-center justify-content-center w-100">
+      <div className="mb-5 mb-md-0 pb-5 pb-sm-0 d-flex align-items-center justify-content-center w-100">
         <div className="row justify-content-center w-100">
           <div className="col-md-8 col-lg-6 col-xl-4 auth-card">
             <div className="card mb-0 pt-3">
@@ -31,7 +31,7 @@ function SignIn() {
               </div>
               <div className="card-body">
               <div className="mb-5 d-flex align-items-center justify-content-center">
-                    <p className="mb-0">Don't have an account yet?</p>
+                    <p className="d-none d-sm-block mb-0">No account yet?</p>
                     <Link className="text-primary fw-medium ms-2 text-decoration-none" to="/signup">Create an
                       account</Link>
                   </div>
