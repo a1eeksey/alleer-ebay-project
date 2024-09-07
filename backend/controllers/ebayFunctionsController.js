@@ -1,11 +1,14 @@
 const Ebay = require('ebay-node-api');
+const clientID = process.env.EBAY_CLIENT_ID
+const clientSecret = process.env.EBAY_CLIENT_SECRET
+
 
 let ebay = new Ebay({
-  clientID: 'Rostysla-Monitori-PRD-2abfbb41d-657fd9cd',
-  clientSecret: 'PRD-abfbb41db217-d813-4093-bff8-4810',
+  clientID: clientID,
+  clientSecret: clientSecret,
   body: {
       grant_type: 'client_credentials',
-  //you may need to define the oauth scope
+
   scope: 'https://api.ebay.com/oauth/api_scope'
   }
 })

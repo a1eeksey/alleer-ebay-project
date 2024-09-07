@@ -101,6 +101,7 @@ function EditEventModal({ onToggle, selectedEvent }) {
                     />
                   </div>
                 </div>
+
                 <div className="flatpickr-input-container mb-3">
                   <div className="form-floating">
                     <DatePicker
