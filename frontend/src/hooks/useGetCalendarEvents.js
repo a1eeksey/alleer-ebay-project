@@ -1,30 +1,25 @@
 import { useState } from 'react'
 
 // Ebay search function using keywords
-export const useSyncEvents = () => {
+export const useGetEvents = () => {
   const [error, setError] = useState(null)
   const [isLoading, setIsLoading] = useState(null)
 
-  const syncEvents = async (userEmail, events) => {
-    if (!events) {
-      return;
-    }
-
+  const getEvents = async (userEmail) => {
     setIsLoading(true)
     setError(null)
-   
-    const response = await fetch(`/user/events/sync`, {
-      method: 'POST',
+    
+    const response = await fetch(`/user/events/get-events?email=${encodeURIComponent(userEmail)}`, {
+      method: 'GET',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({userEmail, events})
+      body: JSON.stringify()
     })
+
     const json = await response.json()
     
     if (!response.ok) {
       setIsLoading(false)
       setError(json.error)
-
-      return false
     }
     if (response.ok) {
       // update loading state
@@ -35,5 +30,5 @@ export const useSyncEvents = () => {
 
   }
 
-  return { syncEvents, isLoading, error }
+  return { getEvents, isLoading, error }
 }

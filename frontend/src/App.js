@@ -2,6 +2,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useAuthContext } from './hooks/useAuthContext'
 import { EventProvider } from './context/CalendarEventContext';
+import { StockItemProvider } from './context/StockItemContext';
 
 // CSS
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -25,17 +26,19 @@ function App() {
   return (
     <div className="App">
       <EventProvider>
-        <Routes>
-          <Route path='/' element={<HomePage />}/>
-          <Route path='/faq' element={<FAQ />}/>
-          <Route path='/integrations' element={<Integrations />}/>
-          <Route path='/feature' element={<Feature />}/>
-          <Route path='/signin' element={!user ? <SignIn /> : <Navigate to="/dashboard" />}/>
-          <Route path='/signup' element={!user ? <SignUp /> : <Navigate to="/dashboard" />}/>
-          <Route path='/forgot-pass' element={<ForgotPass />}/>
-          <Route path='/reset-password/:userId/:token' element={<CreateNewPass />}/>
-          <Route path='/dashboard/*' element={user ? <Dashboard /> : <Navigate to="/"/> } />
-        </Routes>
+        <StockItemProvider>
+          <Routes>
+            <Route path='/' element={<HomePage />}/>
+            <Route path='/faq' element={<FAQ />}/>
+            <Route path='/integrations' element={<Integrations />}/>
+            <Route path='/feature' element={<Feature />}/>
+            <Route path='/signin' element={!user ? <SignIn /> : <Navigate to="/dashboard" />}/>
+            <Route path='/signup' element={!user ? <SignUp /> : <Navigate to="/dashboard" />}/>
+            <Route path='/forgot-pass' element={<ForgotPass />}/>
+            <Route path='/reset-password/:userId/:token' element={<CreateNewPass />}/>
+            <Route path='/dashboard/*' element={user ? <Dashboard /> : <Navigate to="/"/> } />
+          </Routes>
+        </StockItemProvider>
       </EventProvider>
     </div>
   );

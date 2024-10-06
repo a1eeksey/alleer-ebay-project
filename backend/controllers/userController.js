@@ -58,33 +58,6 @@ const forgotPassUser = async (req, res) => {
     // create reset link
     const link = `http://localhost:4000/user/reset-password/${userId}/${token}`
 
-    // sending email to user for password reset
-    // var transporter = nodemailer.createTransport({
-    //   service: 'gmail',
-    //   requireTLS: false,
-    //   auth: {
-    //     user: 'devtest0000111@gmail.com',
-    //     pass: 'nbtkdnrxkoexuczc'
-    //   }
-    // });
-    
-    // var mailOptions = {
-    //   from: 'devtest0000111@gmail.com',
-    //   to: 'youtwigrif@gmail.com',
-    //   subject: 'Password reset',
-    //   text: 'BEBBEE'
-    // };
-    
-    // transporter.sendMail(mailOptions, function(error, info){
-    //   if (error) {
-    //     console.log(error);
-    //   } else {
-    //     console.log('Email sent: ' + info.response);
-    //   }
-    // });
-
-    // console.log(link);
-
     res.status(200).json({userId, email, token})
   } catch (error) {
     res.status(400).json({error: error.message})

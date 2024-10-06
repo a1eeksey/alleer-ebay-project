@@ -5,11 +5,13 @@ import { useAuthContext } from '../../../hooks/useAuthContext'
 // Context, hook
 import EventContext from "../../../context/CalendarEventContext";
 import { useSyncEvents } from "../../../hooks/useCalendarEventsSync";
+import { useGetEvents } from '../../../hooks/useGetCalendarEvents';
 
 // Components
 import CreateEventModal from "./CreateEventModal";
 import SeeEventDetailsModal from "./SeeEventDetailsModal";
 import EditEventModal from "./EditEventModal";
+import PopupAlert from './PopupAlert';
 
 // calendar libs
 import FullCalendar from '@fullcalendar/react'
@@ -24,22 +26,39 @@ function CalendarContainer() {
   const { user } = useAuthContext()
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [isEventDetailsModalOpened, setEventDetailsOpened] = useState(false)
-  const { events } = useContext(EventContext);
+  const { events, setEvents } = useContext(EventContext);
   const [selectedEvent, setSelectedEvent] = useState(null);  
   const {syncEvents, error, isLoading} = useSyncEvents()
-
-  // Calendar view based on screen width
+  const { getEvents } = useGetEvents();
+  const [showPopupAlert, setShowPopupAlert] = useState(false);
+  
   useEffect(() => {
+    setEvents([]);
+    fetchData();
+
     const handleResize = () => setScreenWidth(window.innerWidth);
     window.addEventListener('resize', handleResize);
 
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  const fetchData = async () => {
+    try {
+      const results = await getEvents(user.email);
+      setEvents(results);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const handleSyncEvents = async (e) => {
     e.preventDefault()
-
-    await syncEvents(user.token, events)
+    try {
+      syncEvents(user.email, events)
+      setShowPopupAlert(true);
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   // Create event toggle
@@ -168,6 +187,14 @@ function CalendarContainer() {
           selectedEvent={selectedEvent}
           onToggle={handleToggleEditEventModal}
       />
+
+      {showPopupAlert && (
+        <PopupAlert
+          message="Your changes have been saved!"
+          onClose={() => setShowPopupAlert(false)}
+        />
+      )}
+
     </section>
   );
 }

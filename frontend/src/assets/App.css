@@ -210,6 +210,22 @@ button span {
 
 /* DASHBOARD */
 
+.popup-alert {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: var(--blue-tasks);
+  color: var(--blue);
+  padding: 20px 40px;
+  border-radius: 6px;
+  font-size: 14px;
+  z-index: 1051;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.go-back-btn {
+  cursor: pointer;
+}
 
 /* LOGO */
 

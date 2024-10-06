@@ -24,7 +24,7 @@ function CreateEventModal({ onToggle }) {
       end: endDate,
       allDay,
       label,
-      description
+      description,
     };
 
     // Add the new event using the addEvent function

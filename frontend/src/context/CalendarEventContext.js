@@ -18,7 +18,7 @@ export const EventProvider = ({ children }) => {
   };
 
   return (
-    <EventContext.Provider value={{ events, addEvent, editEvent, deleteEvent }}>
+    <EventContext.Provider value={{ events, setEvents, addEvent, editEvent, deleteEvent }}>
       {children}
     </EventContext.Provider>
   );

@@ -13,7 +13,7 @@ import calendar from "../../../assets/icons/calendar.svg";
 
 function SideBar_NavItem({ title, navItemTitles, activeId, toggleItem }) {
   const navContentMap = {
-    Dashboard: ["Stock management"],
+    Dashboard: ["Stock management", "Add item"],
     Email: ["Inbox", "Compose"],
     Ebay: ["Sell", "Buy", "Order"],
     Amazon: ["Purchase", "Sell", "Order"],

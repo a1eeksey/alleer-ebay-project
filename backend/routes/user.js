@@ -3,7 +3,7 @@ const express = require('express')
 // controller functions
 const { loginUser, signupUser, forgotPassUser, resetPassUserGet, resetPassUserPost } = require('../controllers/userController')
 const { searchListingsByKeywords, getListingById } = require('../controllers/ebayFunctionsController')
-const { syncEvents } = require('../controllers/calendarEventsSyncController')
+const { syncEvents, getEvents } = require('../controllers/calendarEventsSyncController')
 
 const router = express.Router()
 
@@ -24,6 +24,9 @@ router.post('/create-password/:userId/:token', resetPassUserPost);
 
 // POST calendar events sync route
 router.post('/events/sync', syncEvents);
+
+// GET calendar events
+router.get('/events/get-events', getEvents);
 
 // eBay search route
 router.get('/ebay-search', searchListingsByKeywords);
