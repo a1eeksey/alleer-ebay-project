@@ -6,13 +6,13 @@ function FAQ_FirstToggleSection({activeId, toggleItem}) {
   const faqItems = [
     {
       id: "1-toggle",
-      title: "Does using dewabit cost anything?",
-      text: "It depends on how many active listings you have on eBay. For private sellers with up to 20 active listings, the usage is completely free. If you have more than 20 active listings, you will need to choose an affordable plan after the trial period to continue using dewabit.",
+      title: "Does using ALLEER cost anything?",
+      text: "It depends on how many active listings you have on eBay. For private sellers with up to 20 active listings, the usage is completely free. If you have more than 20 active listings, you will need to choose an affordable plan after the trial period to continue using ALLEER.",
     },
     {
       id: "2-toggle",
       title: "What are considered active listings?",
-      text: "It depends on how many active listings you have on eBay. For private sellers with up to 20 active listings, the usage is completely free. If you have more than 20 active listings, you will need to choose an affordable plan after the trial period to continue using dewabit.",
+      text: "It depends on how many active listings you have on eBay. For private sellers with up to 20 active listings, the usage is completely free. If you have more than 20 active listings, you will need to choose an affordable plan after the trial period to continue using ALLEER.",
     },
     {
       id: "3-toggle",

@@ -25,7 +25,7 @@ function SideBar() {
         />
         <SideBar_NavItem
           title="E-COMMERCE"
-          navItemTitles={["Ebay", "Amazon", "Etsy"]}
+          navItemTitles={["Ebay", "Amazon"]}
           activeId={activeId}
           toggleItem={toggleItem}
         />

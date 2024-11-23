@@ -5,7 +5,6 @@ import { useEbaySearch } from "../../../hooks/useEbaySearch";
 
 // icons
 import closeIcon from '../../../assets/icons/closeIcon.svg'
-import minimize from '../../../assets/icons/minimize.svg'
 import search from '../../../assets/icons/search.svg'
 import emptyInbox from '../../../assets/icons/emptyInbox.svg'
 
@@ -43,7 +42,6 @@ function CreateItemSearch({ handleClose }) {
         <div className="popup-item-block">
         <div className="popup-item-header">
                 <div className="images">
-                    <img src={minimize} alt="" />
                     <img onClick={handleClose} src={closeIcon} alt="" />
                 </div>
             </div>

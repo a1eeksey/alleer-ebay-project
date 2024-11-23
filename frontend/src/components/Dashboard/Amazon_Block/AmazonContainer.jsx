@@ -1,7 +1,7 @@
 import React from "react";
 import PageTitle from "../PageTitle";
 
-function ComposeContainer({pageTitle}) {
+function AmazonContainer({pageTitle}) {
   return (
     <section>
       <PageTitle pageTitle={pageTitle}/>
@@ -12,4 +12,4 @@ function ComposeContainer({pageTitle}) {
   );
 }
 
-export default ComposeContainer;
+export default AmazonContainer;

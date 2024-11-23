@@ -6,7 +6,7 @@ function InboxContainer({pageTitle}) {
     <section>
       <PageTitle pageTitle={pageTitle}/>
         <div>
-          
+            Temporary unavailable
         </div>
     </section>
   );

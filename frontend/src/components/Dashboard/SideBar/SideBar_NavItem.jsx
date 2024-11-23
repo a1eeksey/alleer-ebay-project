@@ -15,9 +15,6 @@ function SideBar_NavItem({ title, navItemTitles, activeId, toggleItem }) {
   const navContentMap = {
     Dashboard: ["Stock management", "Add item"],
     Email: ["Inbox", "Compose"],
-    Ebay: ["Sell", "Buy", "Order"],
-    Amazon: ["Purchase", "Sell", "Order"],
-    Etsy: ["Sold", "Orders", "Order"],
   };
 
   const iconMap = {
@@ -26,7 +23,6 @@ function SideBar_NavItem({ title, navItemTitles, activeId, toggleItem }) {
     Calendar: calendar,
     Ebay: tasks,
     Amazon: bag,
-    Etsy: squares,
   };
 
   return (

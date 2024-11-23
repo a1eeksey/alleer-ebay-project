@@ -9,9 +9,6 @@ function UserDropdown({handleClick, userName, userPicture, userEmail}) {
             <h5 className="username-dropdown text-center">{userName}</h5>
             <h6 className="mb-4 text-center">{userEmail}</h6>
             <ul className="flex flex-col mb-0">
-                <li>Manage your account</li>
-                <li>Settings</li>
-                <li>Damm</li>
                 <div className="mt-5 divider">.</div>
                 <li onClick={handleClick} className="log-out_item py-1" >Log out</li>
             </ul>
