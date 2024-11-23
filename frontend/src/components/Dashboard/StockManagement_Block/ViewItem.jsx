@@ -1,17 +1,18 @@
-import React, { useState, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useAuthContext } from '../../../hooks/useAuthContext'
-
+import React, { useState, useContext, useEffect } from "react";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import StockItemContext from "../../../context/StockItemContext";
+import { useAuthContext } from '../../../hooks/useAuthContext'
 
 // Icons
 import roundPlus from "../../../assets/icons/roundPlusWhite.svg";
 import arrowLeft from "../../../assets/icons/arrow-square-left.svg";
 
-function CreateItem({ pageTitle }) {
+function ViewItem({ pageTitle }) {
     const { user } = useAuthContext()
 
-  const { addItem, generateSKU, generateQR } = useContext(StockItemContext);
+  const { editItem, generateSKU, getItemById } = useContext(StockItemContext);
+  const { itemId } = useParams();
+  const [isRevising, setIsRevising] = useState(false);
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -26,6 +27,32 @@ function CreateItem({ pageTitle }) {
   const [descriptionError, setDescriptionError] = useState(false);
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchItem = async () => {
+      try {
+        const selectedItem = await getItemById(user.email, itemId);
+        console.log(selectedItem);
+  
+        if (selectedItem) {
+          setTitle(selectedItem.title || "");
+          setDescription(selectedItem.description || "");
+          setImages(selectedItem.images || []);
+          setRegularPrice(selectedItem.regularPrice || 0);
+          setSalePrice(selectedItem.salePrice || 0);
+          setStockAmount(selectedItem.stockAmount || 0);
+          setCategory(selectedItem.category || "");
+          setDimensions(selectedItem.dimensions || "");
+        } else {
+          console.error("Item not found");
+        }
+      } catch (error) {
+        console.error("Error fetching item:", error);
+      }
+    };
+  
+    fetchItem();
+  }, [itemId, getItemById, user.email]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -44,10 +71,8 @@ function CreateItem({ pageTitle }) {
       return;
     }
 
-    let thisId = String(new Date().getTime());
-
-    const newItem = {
-      id: thisId,
+    const revisedItem = {
+      id: itemId,
       title,
       description,
       images,
@@ -56,24 +81,18 @@ function CreateItem({ pageTitle }) {
       stockAmount,
       category,
       dimensions,
-      SKU: generateSKU(title)
+      SKU: generateSKU(title),
     };
 
-    addItem(user.email, newItem);
-
-    console.log(newItem);
-
+    editItem(user.email, revisedItem);
+    
     navigate("/dashboard/dashboard/stock-management");
-
-    setTitle("");
-    setDescription("");
-    setImages([]); // Clear images on submit
   };
 
   const handleImageChange = (e) => {
     const selectedFiles = Array.from(e.target.files);
     const imageURLs = selectedFiles.map((file) => URL.createObjectURL(file));
-    setImages((prevImages) => [...prevImages, ...imageURLs].slice(0, 10));
+    setImages((prevImages) => [...prevImages, ...imageURLs].slice(0, 10)); // Allow max 10 images
   };
 
   const removeImage = (index) => {
@@ -99,8 +118,7 @@ function CreateItem({ pageTitle }) {
           type="button"
           onClick={handleSubmit}
         >
-          <img src={roundPlus} alt="" />
-          <p className="my-0">Add</p>
+          <p className="my-0">Revise</p>
           <p className="my-0 d-none d-md-flex">this</p>
           <p className="my-0">item</p>
         </button>
@@ -319,4 +337,4 @@ function CreateItem({ pageTitle }) {
   );
 }
 
-export default CreateItem;
+export default ViewItem;

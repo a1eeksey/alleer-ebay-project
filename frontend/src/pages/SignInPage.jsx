@@ -4,10 +4,6 @@ import { useState } from "react"
 import { useLogin } from "../hooks/useLogin"
 import GoogleSignin from "../components/shareable/GoogleSignin"
 
-// icons
-// import google from "../../src/assets/icons/google.svg"
-// import facebook from "../../src/assets/icons/facebook.svg"
-
 function SignIn() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')

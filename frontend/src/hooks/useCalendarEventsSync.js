@@ -1,6 +1,5 @@
 import { useState } from 'react'
 
-// Ebay search function using keywords
 export const useSyncEvents = () => {
   const [error, setError] = useState(null)
   const [isLoading, setIsLoading] = useState(null)
